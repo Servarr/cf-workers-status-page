@@ -55,6 +55,10 @@ monitors:
     name: Radarr Metadata (v1)
     group: radarr
     url: https://radarrapi.servarr.com/v1
+  - id: radarr-website
+    name: Radarr Website
+    group: radarr
+    url: https://radarr.video
   - id: readarr-update
     name: Readarr Update
     group: readarr
