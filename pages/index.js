@@ -8,6 +8,7 @@ import MonitorCard from '../src/components/monitorCard'
 import MonitorFilter from '../src/components/monitorFilter'
 import MonitorStatusHeader from '../src/components/monitorStatusHeader'
 import ThemeSwitcher from '../src/components/themeSwitcher'
+import MonitorGroup from '../src/components/monitorGroup'
 
 const MonitorStore = new Store({
   monitors: config.monitors,
@@ -40,6 +41,7 @@ export async function getEdgeProps() {
 export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
   const state = useStore(MonitorStore)
   const slash = useKeyPress('/')
+  const groups = [...new Set(config.monitors.map((m) => m.group))].sort()
 
   return (
     <div className="min-h-screen">
@@ -79,15 +81,7 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
           </div>
         </div>
         <MonitorStatusHeader kvMonitorsLastUpdate={kvMonitorsLastUpdate} />
-        {state.visible.map((monitor, key) => {
-          return (
-            <MonitorCard
-              key={key}
-              monitor={monitor}
-              data={kvMonitors[monitor.id]}
-            />
-          )
-        })}
+        {groups.map((group) => <MonitorGroup group={group} visible={state.visible} kvMonitors={kvMonitors} />)}
         <div className="flex flex-row justify-between mt-4 text-sm">
           <div>
             Powered by{' '}
