@@ -1,8 +1,8 @@
 settings:
-  title: 'Status Page'
-  url: 'https://status-page.eidam.dev' # used for Slack messages
+  title: 'Servarr Status'
+  url: 'https://cfstatus.servarr.com' # used for Slack messages
   logo: logo-192x192.png # image in ./public/ folder
-  daysInHistogram: 90 # number of days you want to display in histogram
+  daysInHistogram: 7 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
 
   allmonitorsOperational: 'All Systems Operational'
@@ -15,23 +15,61 @@ settings:
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
-  - id: workers-cloudflare-com # unique identifier
-    name: workers.cloudflare.com
-    description: 'You write code. They handle the rest.' # default=empty
-    url: 'https://workers.cloudflare.com/' # URL to fetch
+  - id: prowlarr-update # unique identifier
+    name: Prowlarr Update
+    group: prowlarr
+    # description: 'You write code. They handle the rest.' # default=empty
+    url: 'https://prowlarr.servarr.com/v1/ping' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
     followRedirect: false # should fetch follow redirects, default=false
-
-  - id: www-cloudflare-com
-    name: www.cloudflare.com
-    description: 'Built for anything connected to the Internet.'
-    url: 'https://www.cloudflare.com'
-    method: GET
-    expectStatus: 200
-
-  - id: blog-cloudflare-com
-    name: The Cloudflare Blog
-    url: 'https://blog.cloudflare.com/'
-    method: GET
-    expectStatus: 200
+  - id: prowlarr-indexers
+    name: Prowlarr Indexers
+    group: prowlarr
+    url: https://indexers.prowlarr.com
+  - id: prowlarr-website
+    name: Prowlarr Website
+    group: prowlarr
+    url: https://prowlarr.com
+  - id: lidarr-website
+    name: Lidarr Website
+    group: lidarr
+    url: https://lidarr.audio
+  - id: lidarr-update
+    name: Lidarr Update
+    group: lidarr
+    url: https://lidarr.servarr.com/v1/ping
+  - id: lidarr-api-v04
+    name: Lidarr API (v0.4)
+    group: lidarr
+    url: https://api.lidarr.audio/api/v0.4/
+  - id: lidarr-api-testing
+    name: Lidarr Testing API
+    group: lidarr
+    url: https://api.lidarr.audio/api/testing/
+  - id: radarr-update
+    name: Radarr Update
+    group: radarr
+    url: https://radarr.servarr.com/v1/ping
+  - id: radarr-metadata-v1
+    name: Radarr Metadata (v1)
+    group: radarr
+    url: https://radarrapi.servarr.com/v1
+  - id: readarr-update
+    name: Readarr Update
+    group: readarr
+    url: https://readarr.servarr.com/v1/ping
+  - id: readarr-website
+    name: Readarr Website
+    group: readarr
+    url: https://readarr.com
+  - id: wiki
+    name: Wiki
+    group: general
+    url: wiki.servarr.com
+    followRedirect: true
+  - id: weblate
+    name: Weblate
+    group: general
+    url: translate.servarr.com
+    followRedirect: true
