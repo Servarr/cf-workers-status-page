@@ -66,10 +66,10 @@ monitors:
   - id: wiki
     name: Wiki
     group: general
-    url: wiki.servarr.com
+    url: https://wiki.servarr.com
     followRedirect: true
   - id: weblate
     name: Weblate
     group: general
-    url: translate.servarr.com
+    url: https://translate.servarr.com
     followRedirect: true
