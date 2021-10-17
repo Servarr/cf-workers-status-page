@@ -47,6 +47,10 @@ monitors:
     name: Lidarr Testing API
     group: lidarr
     url: https://api.lidarr.audio/api/testing/
+  - id: lidarr-image-cache
+    name: Lidarr Image Cache
+    group: lidarr
+    url: https://imagecache.lidarr.audio/v1
   - id: radarr-update
     name: Radarr Update
     group: radarr
