@@ -81,3 +81,7 @@ monitors:
     group: general
     url: https://translate.servarr.com
     followRedirect: true
+  - id: github-bot
+    name: GitHub Bot
+    group: general
+    url: https://githubbot.servarr.com/
