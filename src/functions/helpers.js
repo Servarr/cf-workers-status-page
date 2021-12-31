@@ -95,7 +95,7 @@ export async function notifyDiscord(monitor, operational, status) {
         color: operational ? 3581519 : 13632027,
         author: {
           name: `${monitor.name}`,
-          icon_url: `${monitor.icon}`
+          icon_url: `${config.settings.url}/${monitor.icon ? monitor.icon : config.settings.logo}`
         },
         fields: [
           {

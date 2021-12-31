@@ -23,65 +23,81 @@ monitors:
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
     followRedirect: false # should fetch follow redirects, default=false
+    icon: prowlarr_256.png
   - id: prowlarr-indexers
     name: Prowlarr Indexers
     group: prowlarr
     url: https://indexers.prowlarr.com
+    icon: prowlarr_256.png
   - id: prowlarr-website
     name: Prowlarr Website
     group: prowlarr
     url: https://prowlarr.com
+    icon: prowlarr_256.png
   - id: lidarr-website
     name: Lidarr Website
     group: lidarr
     url: https://lidarr.audio
+    icon: lidarr_256.png
   - id: lidarr-update
     name: Lidarr Update
     group: lidarr
     url: https://lidarr.servarr.com/v1/ping
+    icon: lidarr_256.png
   - id: lidarr-api-v04
     name: Lidarr API (v0.4)
     group: lidarr
     url: https://api.lidarr.audio/api/v0.4/
+    icon: lidarr_256.png
   - id: lidarr-api-testing
     name: Lidarr Testing API
     group: lidarr
     url: https://api.lidarr.audio/api/testing/
+    icon: lidarr_256.png
   - id: lidarr-image-cache
     name: Lidarr Image Cache
     group: lidarr
     url: https://imagecache.lidarr.audio/v1
+    icon: lidarr_256.png
   - id: radarr-update
     name: Radarr Update
     group: radarr
     url: https://radarr.servarr.com/v1/ping
+    icon: radarr_256.png
   - id: radarr-metadata-v1
     name: Radarr Metadata (v1)
     group: radarr
     url: https://radarrapi.servarr.com/v1
+    icon: radarr_256.png
   - id: radarr-website
     name: Radarr Website
     group: radarr
     url: https://radarr.video
+    icon: radarr_256.png
   - id: readarr-update
     name: Readarr Update
     group: readarr
     url: https://readarr.servarr.com/v1/ping
+    icon: readarr_256.png
   - id: readarr-website
     name: Readarr Website
     group: readarr
     url: https://readarr.com
+    icon: readarr_256.png
   - id: wiki
     name: Wiki
     group: general
     url: https://wiki.servarr.com
     followRedirect: true
+    icon: servarr_dark_256.png
   - id: weblate
     name: Weblate
     group: general
     url: https://translate.servarr.com
     followRedirect: true
+    icon: servarr_dark_256.png
   - id: github-bot
     name: GitHub Bot
     group: general
     url: https://githubbot.servarr.com/
+    icon: servarr_dark_256.png
