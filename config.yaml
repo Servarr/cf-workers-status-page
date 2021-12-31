@@ -1,6 +1,6 @@
 settings:
   title: 'Servarr Status'
-  url: 'https://cfstatus.servarr.com' # used for Slack messages
+  url: 'https://status.servarr.com' # used for Slack messages
   logo: servarr_dark_256.png # image in ./public/ folder
   daysInHistogram: 90 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
