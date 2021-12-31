@@ -97,13 +97,31 @@ export async function notifyDiscord(monitor, operational) {
     avatar_url: `${config.settings.url}/${config.settings.logo}`,
     embeds: [
       {
-        title: `${monitor.name} is ${getOperationalLabel(operational)} ${
-          operational ? ':white_check_mark:' : ':x:'
-        }`,
-        description: `\`${monitor.method ? monitor.method : 'GET'} ${
-          monitor.url
-        }\` - :eyes: [Status Page](${config.settings.url})`,
+        title: `${monitor.url}`,
+        description: `\`${getOperationalLabel(operational)}\``,
         color: operational ? 3581519 : 13632027,
+        author: {
+          name: `${monitor.name}`,
+          icon_url: `${monitor.icon}`
+        },
+        fields: [
+          {
+            name: `Method`,
+            value: `${monitor.method ? monitor.method : 'GET'}`,
+            inline: true
+          },
+          {
+            name: `Status Code`,
+            value: `Unknown`,
+            inline: true
+          },
+          {
+            name: `Status Page`,
+            value: `[Link](${config.settings.url})`,
+            inline: true
+          }
+        ],
+        timestamp: `${new Date(Date.now()).toISOString()}`
       },
     ],
   }
