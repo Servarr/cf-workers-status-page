@@ -95,7 +95,7 @@ export async function processCronTrigger(event) {
       typeof SECRET_DISCORD_WEBHOOK_URL !== 'undefined' &&
       SECRET_DISCORD_WEBHOOK_URL !== 'default-gh-action-secret'
     ) {
-      event.waitUntil(notifyDiscord(monitor, monitorOperational))
+      event.waitUntil(notifyDiscord(monitor, monitorOperational, checkResponse.status))
     }
 
     // make sure checkDay exists in checks in cases when needed

@@ -84,7 +84,7 @@ export async function notifyTelegram(monitor, operational) {
 }
 
 // Visualize your payload using https://leovoel.github.io/embed-visualizer/
-export async function notifyDiscord(monitor, operational) {
+export async function notifyDiscord(monitor, operational, status) {
   const payload = {
     username: `${config.settings.title}`,
     avatar_url: `${config.settings.url}/${config.settings.logo}`,
@@ -105,7 +105,7 @@ export async function notifyDiscord(monitor, operational) {
           },
           {
             name: `Status Code`,
-            value: `Unknown`,
+            value: `${status}`,
             inline: true
           },
           {
