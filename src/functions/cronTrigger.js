@@ -100,8 +100,6 @@ export async function processCronTrigger(event) {
       event.waitUntil(notifyTelegram(monitor, monitorOperational))
     }
 
-    console.log(discordWebhook)
-
     // Send Discord message on monitor change
     if (
       monitorStatusChanged &&
