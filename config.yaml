@@ -106,3 +106,8 @@ monitors:
     group: general
     url: https://auth.servarr.com/v1
     icon: servarr_dark_256.png
+  - id: prowlarr-requests
+    name: Indexer Requests
+    group: prowlarr
+    url: https://requests.prowlarr.com/
+    icon: prowlarr_256.png
