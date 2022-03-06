@@ -89,7 +89,7 @@ export async function processCronTrigger(event) {
       event.waitUntil(notifyTelegram(monitor, monitorOperational))
     }
 
-    console.log(eval('SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'))
+    console.log(monitor.group || 'general')
 
     // Send Discord message on monitor change
     if (
