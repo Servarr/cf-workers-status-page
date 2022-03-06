@@ -45,6 +45,7 @@ export async function processCronTrigger(event) {
     const init = {
       method: monitor.method || 'GET',
       redirect: monitor.followRedirect ? 'follow' : 'manual',
+      group: monitor.group || 'general',
       headers: {
         'User-Agent': config.settings.user_agent || 'cf-worker-status-page',
       },
@@ -89,13 +90,13 @@ export async function processCronTrigger(event) {
       event.waitUntil(notifyTelegram(monitor, monitorOperational))
     }
 
-    console.log(monitor.group || 'general')
+    console.log(window['SECRET_' + init.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'])
 
     // Send Discord message on monitor change
     if (
       monitorStatusChanged &&
-      typeof eval('SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL') !== 'undefined' &&
-      eval('SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL') !== 'default-gh-action-secret'
+      typeof window['SECRET_' + init.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'] !== 'undefined' &&
+      window['SECRET_' + init.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'] !== 'default-gh-action-secret'
     ) {
       event.waitUntil(notifyDiscord(monitor, monitorOperational, checkResponse.status))
     }
