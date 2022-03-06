@@ -118,7 +118,7 @@ export async function notifyDiscord(monitor, operational, status) {
       },
     ],
   }
-  return fetch(process.env['SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'], {
+  return fetch(eval('SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'), {
     body: JSON.stringify(payload),
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

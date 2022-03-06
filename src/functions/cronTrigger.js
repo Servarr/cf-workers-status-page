@@ -89,11 +89,13 @@ export async function processCronTrigger(event) {
       event.waitUntil(notifyTelegram(monitor, monitorOperational))
     }
 
+    console.log(eval('SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'))
+
     // Send Discord message on monitor change
     if (
       monitorStatusChanged &&
-      typeof process.env['SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'] !== 'undefined' &&
-      process.env['SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'] !== 'default-gh-action-secret'
+      typeof eval('SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL') !== 'undefined' &&
+      eval('SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL') !== 'default-gh-action-secret'
     ) {
       event.waitUntil(notifyDiscord(monitor, monitorOperational, checkResponse.status))
     }
