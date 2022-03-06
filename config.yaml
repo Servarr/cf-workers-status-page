@@ -101,3 +101,8 @@ monitors:
     group: general
     url: https://githubbot.servarr.com/
     icon: servarr_dark_256.png
+  - id: auth-server
+    name: OAuth Server
+    group: general
+    url: https://auth.servarr.com/v1
+    icon: servarr_dark_256.png
