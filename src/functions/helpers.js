@@ -84,7 +84,7 @@ export async function notifyTelegram(monitor, operational) {
 }
 
 // Visualize your payload using https://leovoel.github.io/embed-visualizer/
-export async function notifyDiscord(monitor, operational, status) {
+export async function notifyDiscord(monitor, operational, status, webhook) {
   const payload = {
     username: `${config.settings.title}`,
     avatar_url: `${config.settings.url}/${config.settings.logo}`,
@@ -118,7 +118,7 @@ export async function notifyDiscord(monitor, operational, status) {
       },
     ],
   }
-  return fetch(window['SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'], {
+  return fetch(webhook, {
     body: JSON.stringify(payload),
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

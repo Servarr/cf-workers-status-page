@@ -51,6 +51,16 @@ export async function processCronTrigger(event) {
       },
     }
 
+    const vars = {
+      general: SECRET_GENERAL_DISCORD_WEBHOOK_URL,
+      radarr: SECRET_RADARR_DISCORD_WEBHOOK_URL,
+      lidarr: SECRET_LIDARR_DISCORD_WEBHOOK_URL,
+      prowlarr: SECRET_PROWLARR_DISCORD_WEBHOOK_URL,
+      readarr: SECRET_READARR_DISCORD_WEBHOOK_URL
+    }
+
+    const discordWebhook = vars[init.group]
+
     // Perform a check and measure time
     const requestStartTime = Date.now()
     const checkResponse = await fetch(monitor.url, init)
@@ -90,15 +100,15 @@ export async function processCronTrigger(event) {
       event.waitUntil(notifyTelegram(monitor, monitorOperational))
     }
 
-    console.log(window['SECRET_' + init.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'])
+    console.log(discordWebhook)
 
     // Send Discord message on monitor change
     if (
       monitorStatusChanged &&
-      typeof window['SECRET_' + init.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'] !== 'undefined' &&
-      window['SECRET_' + init.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'] !== 'default-gh-action-secret'
+      typeof discordWebhook !== 'undefined' &&
+      discordWebhook !== 'default-gh-action-secret'
     ) {
-      event.waitUntil(notifyDiscord(monitor, monitorOperational, checkResponse.status))
+      event.waitUntil(notifyDiscord(monitor, monitorOperational, checkResponse.status, discordWebhook))
     }
 
     // make sure checkDay exists in checks in cases when needed
