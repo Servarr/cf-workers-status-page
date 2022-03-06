@@ -67,7 +67,7 @@ monitors:
   - id: radarr-metadata-v1
     name: Radarr Metadata (v1)
     group: radarr
-    url: https://radarrapi.servarr.com/v1
+    url: https://api.radarr.video/v1
     icon: radarr_256.png
   - id: radarr-website
     name: Radarr Website
