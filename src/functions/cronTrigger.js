@@ -92,8 +92,8 @@ export async function processCronTrigger(event) {
     // Send Discord message on monitor change
     if (
       monitorStatusChanged &&
-      typeof SECRET_DISCORD_WEBHOOK_URL !== 'undefined' &&
-      SECRET_DISCORD_WEBHOOK_URL !== 'default-gh-action-secret'
+      typeof process.env['SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'] !== 'undefined' &&
+      process.env['SECRET_' + monitor.group.toUpperCase() + '_DISCORD_WEBHOOK_URL'] !== 'default-gh-action-secret'
     ) {
       event.waitUntil(notifyDiscord(monitor, monitorOperational, checkResponse.status))
     }
