@@ -113,7 +113,7 @@ monitors:
     icon: prowlarr_256.png
   - id: whisparr-website
     name: Whisparr Website
-    group: whisparr-website
+    group: whisparr
     url: https://whisparr.com
     icon: whisparr_256.png
   - id: whisparr-update
