@@ -56,7 +56,8 @@ export async function processCronTrigger(event) {
       radarr: SECRET_RADARR_DISCORD_WEBHOOK_URL,
       lidarr: SECRET_LIDARR_DISCORD_WEBHOOK_URL,
       prowlarr: SECRET_PROWLARR_DISCORD_WEBHOOK_URL,
-      readarr: SECRET_READARR_DISCORD_WEBHOOK_URL
+      readarr: SECRET_READARR_DISCORD_WEBHOOK_URL,
+      whisparr: SECRET_WHISPARR_DISCORD_WEBHOOK_URL,
     }
 
     const discordWebhook = vars[init.group]
