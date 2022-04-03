@@ -111,3 +111,18 @@ monitors:
     group: prowlarr
     url: https://requests.prowlarr.com/
     icon: prowlarr_256.png
+  - id: whisparr-website
+    name: Whisparr Website
+    group: whisparr-website
+    url: https://whisparr.com
+    icon: whisparr_256.png
+  - id: whisparr-update
+    name: Whisparr Update
+    group: whisparr
+    url: https://whisparr.servarr.com/v1/ping
+    icon: whisparr_256.png
+  - id: whisparr-metadata-v1
+    name: Whisparr Metadata (v1)
+    group: whisparr
+    url: https://api.whisparr.com/v1
+    icon: whisparr_256.png
