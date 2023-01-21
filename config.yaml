@@ -109,6 +109,7 @@ monitors:
   - id: prowlarr-requests
     name: Indexer Requests
     group: prowlarr
+    expectStatus: 302
     url: https://requests.prowlarr.com/
     icon: prowlarr_256.png
   - id: whisparr-website
