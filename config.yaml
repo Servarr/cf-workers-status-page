@@ -125,5 +125,5 @@ monitors:
   - id: whisparr-metadata-v1
     name: Whisparr Metadata (v1)
     group: whisparr
-    url: https://api.whisparr.com/v1
+    url: https://api.whisparr.com/v1/
     icon: whisparr_256.png
